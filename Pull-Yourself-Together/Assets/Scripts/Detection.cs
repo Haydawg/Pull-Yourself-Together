@@ -33,7 +33,7 @@ public class Detection : MonoBehaviour
     public void Movement()
     {
         if (child.catchingToy)
-            return;
+            transform.position = Vector2.MoveTowards(transform.position, child.caughtToy.transform.position, moveSpeed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, moveTarget) < 2)
         {
