@@ -12,7 +12,8 @@ public class Child : MonoBehaviour
     GameObject hand;
     [SerializeField]
     GameObject handAnchor;
-
+    [SerializeField]
+    Sprite[] handSprites;
     public Vector2 moveTarget;
 
     [SerializeField]
@@ -24,10 +25,16 @@ public class Child : MonoBehaviour
     public Detection detectionArea;
 
     public GameObject caughtToy;
-    [SerializeField]
-    bool catchingToy = false;
+
+    public bool catchingToy = false;
     bool moving = false;
     bool movingRight = false;
+
+    public AudioSource audioSource;
+    [SerializeField]
+    AudioSource audioSource2;
+    [SerializeField]
+    AudioClip[] clips;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +47,7 @@ public class Child : MonoBehaviour
         Movement();
         EyeMovement();
 
-        if(caughtToy)
+        if (caughtToy)
         {
             if (Mathf.Abs(caughtToy.transform.position.x - transform.position.x) < 5)
             {
@@ -49,31 +56,41 @@ public class Child : MonoBehaviour
             }
             if (hand.transform.position == caughtToy.transform.position)
             {
+                hand.GetComponent<SpriteRenderer>().sprite = handSprites[1];
                 catchingToy = false;
                 if (caughtToy.GetComponent<Npc>())
                 {
+
                     Npc npc = caughtToy.GetComponent<Npc>();
+                    if (!npc.droppedLimb)
+                    {
+                        npc.audioSource.PlayOneShot(npc.clips[0]);
+                    }
                     npc.caught = true;
+
+
                 }
-                
                 hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed);
-              
             }
         }
-
+        else
+        {
+            hand.GetComponent<SpriteRenderer>().sprite = handSprites[0];
+        }
     }
 
     public void Movement()
     {
         if (catchingToy)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(caughtToy.transform.position.x, 0), moveSpeed);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(caughtToy.transform.position.x, -1.85f), moveSpeed);
 
         }
         else
         {
             moveTarget = detectionArea.transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(moveTarget.x, 0), moveSpeed/2);
+            if(Vector2.Distance(transform.position, detectionArea.transform.position) > 5)
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(moveTarget.x, -1.85f), moveSpeed);
         }
     }
 
@@ -90,7 +107,7 @@ public class Child : MonoBehaviour
     {
         if (!catchingToy)
         {
-            Debug.Log(caughtToy.name);
+            audioSource2.PlayOneShot(clips[1]);
             this.caughtToy = caughtToy;
             catchingToy = true;
         }
@@ -98,7 +115,6 @@ public class Child : MonoBehaviour
 
     public void Grab()
     {
-        Debug.Log("catch");
         hand.transform.position = Vector2.MoveTowards(hand.transform.position, caughtToy.transform.position, handSpeed);
     }
 }
