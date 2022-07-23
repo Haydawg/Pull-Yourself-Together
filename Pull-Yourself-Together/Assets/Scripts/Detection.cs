@@ -20,7 +20,7 @@ public class Detection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        moveTarget = positions[0].position;
     }
 
     // Update is called once per frame
