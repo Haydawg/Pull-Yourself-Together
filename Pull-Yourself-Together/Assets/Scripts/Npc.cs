@@ -81,7 +81,7 @@ public class Npc : MonoBehaviour
 
     public void CheckWalkArea()
     {
-
+        /*
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
@@ -90,5 +90,6 @@ public class Npc : MonoBehaviour
         Ray2D ray = new Ray2D(transform.position, -transform.up + transform.right);
         RaycastHit2D hit;
         Physics.Raycast(ray, 5,out hit);
+        */
     }
 }
