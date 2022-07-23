@@ -13,6 +13,8 @@ public class Detection : MonoBehaviour
     Vector2 moveTarget;
     [SerializeField]
     float moveSpeed;
+
+    bool isLooking = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,13 +52,16 @@ public class Detection : MonoBehaviour
             {
                 npc.stop = true;
                 child.Caught(npc.gameObject);
+                isLooking = false;
             }
         }
-        if (collision == player.headSegment.segmentCollider)
+
+        else if (collision == player.headSegment.segmentCollider)
         {
             if (player.IsMoving)
             {
                 child.Caught(player.headSegment.gameObject);
+                isLooking = false;
             }
         }
     }

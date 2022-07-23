@@ -123,7 +123,8 @@ public class Child : MonoBehaviour
     {
         if (!catchingToy)
         {
-            audioSource2.PlayOneShot(clips[1]);
+            if(!audioSource2.isPlaying)
+                audioSource2.PlayOneShot(clips[1]);
             this.caughtToy = caughtToy;
             catchingToy = true;
         }

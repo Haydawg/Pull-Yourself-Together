@@ -69,11 +69,9 @@ public class Limb : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerCharacter>())
+        if (collision.collider == PlayerCharacter.instance.headSegment.segmentCollider)
         {
-            PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-            //Add whatever the limb attachment function is
-            // player.AttachLimb(type)
+            PlayerCharacter.instance.AddSegment();
 
             Destroy(gameObject);
         }
