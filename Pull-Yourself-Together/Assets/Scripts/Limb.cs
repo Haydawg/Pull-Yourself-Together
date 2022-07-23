@@ -22,6 +22,7 @@ public class Limb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetSprite();
        // sprite = GetComponent<SpriteRenderer>();
 
     }

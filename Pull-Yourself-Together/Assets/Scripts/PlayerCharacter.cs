@@ -307,7 +307,7 @@ public class PlayerCharacter : MonoBehaviour
             directionVector += new Vector2(0, 1);
             directionVector = directionVector.normalized;
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             directionVector -= new Vector2(0, 1);
             directionVector = directionVector.normalized;

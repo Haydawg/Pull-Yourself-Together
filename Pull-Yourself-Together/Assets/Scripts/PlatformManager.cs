@@ -16,7 +16,7 @@ public class PlatformManager : MonoBehaviour
 
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Platform");
 
-        foreach (GameObject obj in objects)
+        foreach (GameObject obj in objects) 
         {
             platforms.Add(obj.GetComponent<Collider2D>());
         }
