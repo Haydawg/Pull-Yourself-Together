@@ -35,9 +35,11 @@ public class Npc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 startPos = transform.position;
         Movement();
+        Vector3 finalPos = transform.position;
+        isMoving = (finalPos != startPos);
         CheckWalkArea();
-        StartCoroutine(CheckMoving());
         if (caught)
         {
             collider.enabled = false;
@@ -77,13 +79,6 @@ public class Npc : MonoBehaviour
         else if (caught)
             return;
         transform.position = transform.position + new Vector3(move,0,0) * Time.deltaTime;
-    }
-    public IEnumerator CheckMoving()
-    {
-        Vector3 startPos = transform.position;
-        yield return new WaitForSeconds(.1f);
-        Vector3 finalPos = transform.position;
-        isMoving = (finalPos != startPos);
     }
 
     public void DropLimb()

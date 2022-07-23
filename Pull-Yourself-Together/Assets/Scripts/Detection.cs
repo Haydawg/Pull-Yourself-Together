@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Detection : MonoBehaviour
 {
+    [SerializeField]
+    PlayerCharacter player;
     public Child child;
     [SerializeField]
     Transform[] positions;
@@ -20,6 +22,7 @@ public class Detection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Movement();
     }
 
@@ -49,14 +52,12 @@ public class Detection : MonoBehaviour
                 child.Caught(npc.gameObject);
             }
         }
-        //if (collision.gameObject.GetComponent<PlayerCharacter>())
-        //{
-        //    Debug.Log("Player");
-        //    PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-        //    if (player)// add an isMoving bool to player
-        //    {
-        //        child.Caught(player.gameObject);
-        //    }
-        //}
+        if (collision == player.headSegment.segmentCollider)
+        {
+            if (player.IsMoving)
+            {
+                child.Caught(player.headSegment.gameObject);
+            }
+        }
     }
 }

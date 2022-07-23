@@ -51,7 +51,6 @@ public class Child : MonoBehaviour
         {
             if (Mathf.Abs(caughtToy.transform.position.x - transform.position.x) < 5)
             {
-                Debug.Log("moving");
                 Grab();
             }
             if (hand.transform.position == caughtToy.transform.position)
@@ -70,12 +69,29 @@ public class Child : MonoBehaviour
 
 
                 }
-                hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed);
+                if (caughtToy.GetComponent<BodySegment>())
+                {
+
+                    PlayerCharacter.instance.IsCaptured = true;
+
+                }
             }
         }
         else
         {
+
             hand.GetComponent<SpriteRenderer>().sprite = handSprites[0];
+        }
+
+        if(PlayerCharacter.instance.IsCaptured)
+        {
+            PlayerCharacter.instance.headSegment.transform.position = hand.transform.position;
+        }
+
+        if(!catchingToy)
+        {
+            hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed);
+
         }
     }
 
