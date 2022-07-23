@@ -44,13 +44,18 @@ public class Child : MonoBehaviour
         {
             if (Mathf.Abs(caughtToy.transform.position.x - transform.position.x) < 5)
             {
+                Debug.Log("moving");
                 Grab();
             }
+            if (hand.transform.position == caughtToy.transform.position)
+            {
+                catchingToy = false;
+                Npc npc = caughtToy.GetComponent<Npc>();
+                npc.caught = true;
+                hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed);
+            }
         }
-        if (hand.transform.position == caughtToy.transform.position)
-        {
-            catchingToy = false;
-        }
+
     }
 
     public void Movement()

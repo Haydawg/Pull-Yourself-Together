@@ -8,10 +8,16 @@ public class Npc : MonoBehaviour
     Collider2D collider;
     public bool caught;
     public GameObject limb;
+    GameObject hand;
+    [SerializeField]
+    float floorLevel;
+
+    bool droppedLimb = false;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
+        hand = GameObject.Find("Hand");
     }
 
     // Update is called once per frame
@@ -21,7 +27,19 @@ public class Npc : MonoBehaviour
         if (caught)
         {
             collider.enabled = false;
+            
+            transform.position = hand.transform.position;
+            if(!droppedLimb)
+            {
+                DropLimb();
+            }
         }
+
+        if(transform.position.y < floorLevel)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     
@@ -35,6 +53,7 @@ public class Npc : MonoBehaviour
 
     public void DropLimb()
     {
-        Instantiate(limb);
+        droppedLimb = true;
+        Instantiate(limb, transform.position, Quaternion.identity);
     }
 }
