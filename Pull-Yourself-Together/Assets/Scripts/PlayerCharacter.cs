@@ -268,7 +268,7 @@ public class PlayerCharacter : MonoBehaviour
                 // Cast a ray straight down.
 
                 RaycastHit2D[] hit = new RaycastHit2D[1];
-                body.segmentCollider.Raycast(new Vector2(Mathf.Cos(theta), Mathf.Sin(theta)), hit, colliderRadius);
+                body.segmentCollider.Raycast(new Vector2(Mathf.Cos(theta), Mathf.Sin(theta)), hit, colliderRadius, 1);
 
                 // If it hits something...
                 if (hit[0].collider != null)
