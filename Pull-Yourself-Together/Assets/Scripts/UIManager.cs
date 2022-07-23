@@ -8,11 +8,11 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject winLoosePanel;
+    GameObject winLosePanel;
     [SerializeField]
     GameObject pausePanel;
     [SerializeField]
-    TextMeshProUGUI winLooseText;
+    TextMeshProUGUI winLoseText;
 
     [SerializeField]
     Collider2D endCollider;
@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
         else
             Time.timeScale = 1;
 
-        if (winLoosePanel.activeSelf)
+        if (winLosePanel.activeSelf)
         {
             Time.timeScale = 0;
         }
@@ -47,14 +47,14 @@ public class UIManager : MonoBehaviour
 
         if (PlayerCharacter.instance.headSegment.transform.position.y < deathYpos)
         {
-            winLoosePanel.SetActive(true);
-            winLooseText.text = "You Loose Try again";
+            winLosePanel.SetActive(true);
+            winLoseText.text = "You Loose Try again";
         }
 
         if(endCollider.IsTouching(PlayerCharacter.instance.headSegment.segmentCollider))
         {
-            winLoosePanel.SetActive(true);
-            winLooseText.text = "Congrats You Win";
+            winLosePanel.SetActive(true);
+            winLoseText.text = "Congrats You Win";
         }
     }
 
