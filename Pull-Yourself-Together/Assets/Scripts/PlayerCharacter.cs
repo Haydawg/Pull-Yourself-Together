@@ -46,10 +46,13 @@ public class PlayerCharacter : MonoBehaviour
 
     public List<BodySegment> physicsSegments;
 
+    public bool IsCaptured;
+
 
     public void Start()
     {
         IsMoving = false;
+        IsCaptured = false;
         headVelocity = new Vector3(0, 0, 0);
         headTarget = headSegment.transform.position;
         GenerateBody();
@@ -117,9 +120,18 @@ public class PlayerCharacter : MonoBehaviour
         //rendering order established
     }
 
+    public void Capture()
+    {
+        IsCaptured = true;
+    }
+
 
     public void Update()
     {
+        if (IsCaptured)
+        {
+            return;
+        }
         Vector2 initPos = headSegment.transform.position;
 
         if (Input.GetKeyDown(KeyCode.O))
@@ -221,18 +233,6 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
         return returnValue;
-    }
-
-    public bool IsBodyInContactWithGround()
-    {
-        foreach (BodySegment body in physicsSegments)
-        {
-            foreach (Collider2D platform in PlatformManager.instance.platforms)
-            {
-                if (body.segmentCollider.IsTouching(platform)) return true;
-            }
-        }
-        return false;
     }
 
     public bool IsTransformInSegmentList(Collider2D segment)
