@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
+    public Child[] children;
     public bool isMoving;
     Collider2D collider;
     public bool caught;
+    public LimbType LimbType;
     public GameObject limb;
     GameObject hand;
     [SerializeField]
@@ -15,11 +17,17 @@ public class Npc : MonoBehaviour
     [SerializeField]
     Animator anim;
 
+    float move = 1;
 
-    bool droppedLimb = false;
+    public bool stop;
+    public bool droppedLimb = false;
+
+    public AudioSource audioSource;
+    public AudioClip[] clips;
     // Start is called before the first frame update
     void Start()
     {
+        children = FindObjectsOfType<Child>();
         collider = GetComponent<Collider2D>();
         hand = GameObject.Find("Hand");
     }
@@ -27,11 +35,13 @@ public class Npc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
+        CheckWalkArea();
         StartCoroutine(CheckMoving());
         if (caught)
         {
             collider.enabled = false;
-            
+            GetComponent<SpriteRenderer>().sortingOrder = -4;
             transform.position = hand.transform.position;
             if(!droppedLimb)
             {
@@ -43,10 +53,31 @@ public class Npc : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        anim.SetFloat("move", move);
+        anim.SetBool("isMoving", !stop);
 
+        foreach (Child child in children)
+        {
+            if (Vector2.Distance(child.transform.position, transform.position) < 10)
+            {
+                stop = true;
+            }
+            else
+                stop = false;
+        }
     }
 
-    
+
+
+
+    public void Movement()
+    {
+        if (stop)
+            return;
+        else if (caught)
+            return;
+        transform.position = transform.position + new Vector3(move,0,0) * Time.deltaTime;
+    }
     public IEnumerator CheckMoving()
     {
         Vector3 startPos = transform.position;
@@ -59,37 +90,45 @@ public class Npc : MonoBehaviour
     {
         droppedLimb = true;
         GameObject droppedlimb = Instantiate(limb, transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(clips[1]);
         Limb limbType = droppedlimb.GetComponent<Limb>();
-        int randomValue = Random.Range(0, 4);
-        switch(randomValue)
-        {
-            case 0:
-                limbType.type = LimbType.Leg;
-                break;
-            case 1:
-                limbType.type = LimbType.Arm;
-                break;
-            case 2:
-                limbType.type = LimbType.Head;
-                break;
-            case 3:
-                limbType.type = LimbType.Torso;
-                break;
-        }
+
+        //int randomValue = Random.Range(0, 4);
+        //switch(randomValue)
+        //{
+        //    case 0:
+        //        limbType.type = LimbType.Leg;
+        //        break;
+        //    case 1:
+        //        limbType.type = LimbType.Arm;
+        //        break;
+        //    case 2:
+        //        limbType.type = LimbType.Head;
+        //        break;
+        //    case 3:
+        //        limbType.type = LimbType.Torso;
+        //        break;
+        //}
+        limbType.type = LimbType;
         limbType.SetSprite();
     }
 
     public void CheckWalkArea()
     {
-        /*
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        
+        RaycastHit2D[] hit = new RaycastHit2D[1];
+        if(move > 0)
+            collider.Raycast(-transform.up + transform.right, hit, 2);
+        else if (move < 0)
+            collider.Raycast(-transform.up + -transform.right, hit, 2);
+
+        if (hit[0])
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
-        }
-        Ray2D ray = new Ray2D(transform.position, -transform.up + transform.right);
-        RaycastHit2D hit;
-        Physics.Raycast(ray, 5,out hit);
-        */
+            if (hit[0].collider.tag != "Platform")
+                move *= -1;
+        } 
+        else
+            move *= -1;
+
     }
 }
