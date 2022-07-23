@@ -30,6 +30,8 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField]
     private GameObject headSprite;
 
+    public bool IsMoving;
+
 
     //Body Generation
 
@@ -47,6 +49,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Start()
     {
+        IsMoving = false;
         headVelocity = new Vector3(0, 0, 0);
         headTarget = headSegment.transform.position;
         GenerateBody();
@@ -117,6 +120,8 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Update()
     {
+        Vector2 initPos = headSegment.transform.position;
+
         if (Input.GetKeyDown(KeyCode.O))
         {
             AddSegment();
@@ -168,6 +173,9 @@ public class PlayerCharacter : MonoBehaviour
         else headSprite.transform.localScale = new Vector2(headSprite.transform.localScale.x, Mathf.Abs(headSprite.transform.localScale.y));
         headSprite.transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
         //headSprite.transform.LookAt(, Vector2.up);
+
+        Vector2 finalPos = headSegment.transform.position;
+        IsMoving = finalPos != initPos;
     }
 
     private bool IsStuck()
