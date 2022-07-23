@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf36c0b8aba5ac14f8dcc4587bb95672
+guid: ded8492fedd0e604db360f6aff4c3e8b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Purple_Merged_Down_0
+      name: purple bear movement_0
       rect:
         serializedVersion: 2
-        x: 253
-        y: 2618
-        width: 644
-        height: 399
+        x: 69
+        y: 944
+        width: 1621
+        height: 1933
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88ccc1f657c2bcc44bcd12e4ac235ee7
-      internalID: 1979541539
+      spriteID: bc7eff71ef51fb94b913364b7b49f668
+      internalID: -929667943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Purple_Merged_Down_1
+      name: purple bear movement_1
       rect:
         serializedVersion: 2
-        x: 1241
-        y: 922
-        width: 1623
-        height: 1935
+        x: 1845
+        y: 919
+        width: 1012
+        height: 1958
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35c9ef2b6fd5c6343b08cc7e33629945
-      internalID: -1854892459
+      spriteID: 6de397db800ee304b9f47778c683a178
+      internalID: 1720917613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Purple_Merged_Down_2
+      name: purple bear movement_2
       rect:
         serializedVersion: 2
-        x: 3373
-        y: 2640
-        width: 700
-        height: 629
+        x: 2952
+        y: 958
+        width: 649
+        height: 1953
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a62572bb28727a4429fc43480913c284
-      internalID: -1562551334
+      spriteID: ac0c22876defe0d4ea7e686ab7a90b5e
+      internalID: -409262503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Purple_Merged_Down_3
+      name: purple bear movement_3
       rect:
         serializedVersion: 2
-        x: 3577
-        y: 1964
-        width: 596
-        height: 436
+        x: 3841
+        y: 958
+        width: 942
+        height: 1953
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,71 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fae5d303703cf3048aa9d7e69e6bd6dc
-      internalID: 1681644645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple_Merged_Down_4
-      rect:
-        serializedVersion: 2
-        x: 362
-        y: 309
-        width: 414
-        height: 809
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b034903426d04294e9521d75f6080dc8
-      internalID: -1325753020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple_Merged_Down_5
-      rect:
-        serializedVersion: 2
-        x: 3075
-        y: 253
-        width: 422
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0151270305edbd64d88c040638b7c332
-      internalID: -212393302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple_Merged_Down_6
-      rect:
-        serializedVersion: 2
-        x: 4078
-        y: 699
-        width: 722
-        height: 833
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93dca0626eb6d5340a17b06ea91667f3
-      internalID: -904274751
+      spriteID: 0be971f557c8d854b8afb61e2ede2c45
+      internalID: -317839712
       vertices: []
       indices: 
       edges: []
@@ -261,13 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Purple_Merged_Down_0: 1979541539
-      Purple_Merged_Down_5: -212393302
-      Purple_Merged_Down_3: 1681644645
-      Purple_Merged_Down_4: -1325753020
-      Purple_Merged_Down_1: -1854892459
-      Purple_Merged_Down_6: -904274751
-      Purple_Merged_Down_2: -1562551334
+      purple bear movement_3: -317839712
+      purple bear movement_1: 1720917613
+      purple bear movement_2: -409262503
+      purple bear movement_0: -929667943
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

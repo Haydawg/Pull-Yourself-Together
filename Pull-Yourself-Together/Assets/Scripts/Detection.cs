@@ -5,6 +5,9 @@ using UnityEngine;
 public class Detection : MonoBehaviour
 {
     public Child child;
+    Vector2 moveTarget;
+    [SerializeField]
+    float moveSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +17,7 @@ public class Detection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = Vector2.MoveTowards(transform.position, moveTarget, moveSpeed);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -24,6 +27,15 @@ public class Detection : MonoBehaviour
             if (npc.isMoving)
             {
                 child.Caught(npc.gameObject);
+            }
+        }
+        if (collision.gameObject.GetComponent<PlayerCharacter>())
+        {
+            Debug.Log("Player");
+            PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
+            if (player)// add an isMoving bool to player
+            {
+                child.Caught(player.gameObject);
             }
         }
     }

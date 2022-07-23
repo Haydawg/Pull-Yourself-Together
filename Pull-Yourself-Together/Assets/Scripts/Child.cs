@@ -50,9 +50,14 @@ public class Child : MonoBehaviour
             if (hand.transform.position == caughtToy.transform.position)
             {
                 catchingToy = false;
-                Npc npc = caughtToy.GetComponent<Npc>();
-                npc.caught = true;
+                if (caughtToy.GetComponent<Npc>())
+                {
+                    Npc npc = caughtToy.GetComponent<Npc>();
+                    npc.caught = true;
+                }
+                
                 hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed);
+              
             }
         }
 
@@ -60,13 +65,16 @@ public class Child : MonoBehaviour
 
     public void Movement()
     {
-        if(catchingToy)
+        if (catchingToy)
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(caughtToy.transform.position.x, 0), moveSpeed);
 
         }
         else
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(moveTarget.x, 0), moveSpeed);
+        {
+            moveTarget = detectionArea.transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(moveTarget.x, 0), moveSpeed/2);
+        }
     }
 
     public void EyeMovement()

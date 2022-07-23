@@ -12,6 +12,10 @@ public class Npc : MonoBehaviour
     [SerializeField]
     float floorLevel;
 
+    [SerializeField]
+    Animator anim;
+
+
     bool droppedLimb = false;
     // Start is called before the first frame update
     void Start()
@@ -54,6 +58,37 @@ public class Npc : MonoBehaviour
     public void DropLimb()
     {
         droppedLimb = true;
-        Instantiate(limb, transform.position, Quaternion.identity);
+        GameObject droppedlimb = Instantiate(limb, transform.position, Quaternion.identity);
+        Limb limbType = droppedlimb.GetComponent<Limb>();
+        int randomValue = Random.Range(0, 4);
+        switch(randomValue)
+        {
+            case 0:
+                limbType.type = LimbType.Leg;
+                break;
+            case 1:
+                limbType.type = LimbType.Arm;
+                break;
+            case 2:
+                limbType.type = LimbType.Head;
+                break;
+            case 3:
+                limbType.type = LimbType.Torso;
+                break;
+        }
+        limbType.SetSprite();
+    }
+
+    public void CheckWalkArea()
+    {
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+        }
+        Ray2D ray = new Ray2D(transform.position, -transform.up + transform.right);
+        RaycastHit2D hit;
+        Physics.Raycast(ray, 5,out hit);
     }
 }
