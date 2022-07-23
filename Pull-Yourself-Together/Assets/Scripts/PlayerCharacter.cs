@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    
+    public static PlayerCharacter instance;
     
 
     private Vector2 directionVector;
@@ -51,6 +51,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Start()
     {
+        instance = this;
         IsMoving = false;
         IsCaptured = false;
         headVelocity = new Vector3(0, 0, 0);
