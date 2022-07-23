@@ -10,6 +10,7 @@ public class Detection : MonoBehaviour
     [SerializeField]
     Transform[] positions;
     int currentMoveTarget = 0;
+    [SerializeField]
     Vector2 moveTarget;
     [SerializeField]
     float moveSpeed;
@@ -35,21 +36,26 @@ public class Detection : MonoBehaviour
         if (child.catchingToy)
             transform.position = Vector2.MoveTowards(transform.position, child.caughtToy.transform.position, moveSpeed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, moveTarget) < 2)
-        {
-            currentMoveTarget++;
-            if (currentMoveTarget >= positions.Length)
-            {
-                currentMoveTarget = 0;
-            }
-            moveTarget = positions[currentMoveTarget].position;
-        }
+
         if (child.hasCaughtToy)
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, outOfVeiw), moveSpeed * Time.deltaTime);
         }
         else
+        {
+            if (Vector2.Distance(transform.position, moveTarget) < 2)
+            {
+                currentMoveTarget++;
+                if (currentMoveTarget >= positions.Length)
+                {
+                    currentMoveTarget = 0;
+                }
+                moveTarget = positions[currentMoveTarget].position;
+            }
             transform.position = Vector2.MoveTowards(transform.position, moveTarget, moveSpeed * Time.deltaTime);
+
+        }
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

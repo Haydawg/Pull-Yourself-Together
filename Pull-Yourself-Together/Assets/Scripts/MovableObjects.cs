@@ -6,6 +6,8 @@ public class MovableObjects : MonoBehaviour
 {
     [SerializeField]
     AudioSource audioSource;
+    [SerializeField]
+    float impusleBeforeSound = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class MovableObjects : MonoBehaviour
             totalImpulse += contact.normalImpulse;
         }
         Debug.Log(totalImpulse);
-        if (totalImpulse > 4)
+        if (totalImpulse > impusleBeforeSound)
             audioSource.PlayOneShot(audioSource.clip);
 
     }
