@@ -10,7 +10,6 @@ public class Npc : MonoBehaviour
     public bool caught;
     public LimbType LimbType;
     public GameObject limb;
-    GameObject hand;
     [SerializeField]
     float floorLevel;
 
@@ -32,7 +31,6 @@ public class Npc : MonoBehaviour
     {
         children = FindObjectsOfType<Child>();
         collider = GetComponent<Collider2D>();
-        hand = GameObject.Find("Hand");
     }
 
     // Update is called once per frame
@@ -45,7 +43,6 @@ public class Npc : MonoBehaviour
         {
             collider.enabled = false;
             GetComponent<SpriteRenderer>().sortingOrder = -4;
-            transform.position = hand.transform.position;
             if(!droppedLimb)
             {
                 DropLimb();

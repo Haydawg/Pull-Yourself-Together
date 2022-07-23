@@ -96,6 +96,14 @@ public class Child : MonoBehaviour
 
                 }
             }
+            if (caughtToy.GetComponent<Npc>())
+            {
+                Npc npc = caughtToy.GetComponent<Npc>();
+                if (npc.caught)
+                {
+                    npc.transform.position = hand.transform.position;
+                }
+            }
         }
         else
         {

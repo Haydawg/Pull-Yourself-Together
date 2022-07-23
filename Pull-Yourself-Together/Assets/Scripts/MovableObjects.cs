@@ -8,17 +8,6 @@ public class MovableObjects : MonoBehaviour
     AudioSource audioSource;
     [SerializeField]
     float impusleBeforeSound = 4;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,7 +18,6 @@ public class MovableObjects : MonoBehaviour
         {
             totalImpulse += contact.normalImpulse;
         }
-        Debug.Log(totalImpulse);
         if (totalImpulse > impusleBeforeSound)
             audioSource.PlayOneShot(audioSource.clip);
 
