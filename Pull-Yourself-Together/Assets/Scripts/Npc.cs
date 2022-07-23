@@ -18,7 +18,8 @@ public class Npc : MonoBehaviour
     Animator anim;
 
     float move = 1;
-
+    [SerializeField]
+    float raycastSize = 5;
     public bool stop;
     public bool droppedLimb = false;
 
@@ -119,10 +120,10 @@ public class Npc : MonoBehaviour
         
         RaycastHit2D[] hit = new RaycastHit2D[1];
         if(move > 0)
-            collider.Raycast(-transform.up + transform.right, hit, 2);
+            collider.Raycast(-transform.up + transform.right, hit, raycastSize);
         else if (move < 0)
-            collider.Raycast(-transform.up + -transform.right, hit, 2);
-
+            collider.Raycast(-transform.up + -transform.right, hit, raycastSize);
+        Debug.DrawLine(transform.position, hit[0].point, Color.red);
         if (hit[0])
         {
             if (hit[0].collider.tag != "Platform")
