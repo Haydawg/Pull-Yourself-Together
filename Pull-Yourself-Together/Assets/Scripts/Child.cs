@@ -30,11 +30,19 @@ public class Child : MonoBehaviour
     bool moving = false;
     bool movingRight = false;
 
+    public bool hasStarted = false;
+    public bool leavesAfterGrab = false;
+    public bool hasCaughtToy = false;
+    [SerializeField]
+    float outOfVeiw;
     public AudioSource audioSource;
     [SerializeField]
     AudioSource audioSource2;
     [SerializeField]
     AudioClip[] clips;
+
+    [SerializeField]
+    public Collider2D startCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +52,16 @@ public class Child : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (startCollider)
+        {
+            if (startCollider.IsTouching(PlayerCharacter.instance.headSegment.segmentCollider))
+            {
+                hasStarted = true;
+                Destroy(startCollider.gameObject);
+            }
+        }
+        if (!hasStarted)
+            return;
         Movement();
         EyeMovement();
 
@@ -55,6 +73,8 @@ public class Child : MonoBehaviour
             }
             if (hand.transform.position == caughtToy.transform.position)
             {
+                if (leavesAfterGrab)
+                    hasCaughtToy = true;
                 hand.GetComponent<SpriteRenderer>().sprite = handSprites[1];
                 catchingToy = false;
                 if (caughtToy.GetComponent<Npc>())
@@ -93,6 +113,8 @@ public class Child : MonoBehaviour
             hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed * Time.deltaTime);
 
         }
+
+
     }
 
     public void Movement()
@@ -101,6 +123,10 @@ public class Child : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(caughtToy.transform.position.x, -1.85f), moveSpeed * Time.deltaTime);
 
+        }
+        else if (hasCaughtToy)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, outOfVeiw), moveSpeed * Time.deltaTime);
         }
         else
         {
