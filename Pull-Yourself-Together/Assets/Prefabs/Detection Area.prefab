@@ -132,4 +132,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  moveSpeed: 0.02
+  moveSpeed: 1

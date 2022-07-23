@@ -882,11 +882,13 @@ MonoBehaviour:
   colliderRadius: 1.2
   headColliderRadius: 1
   headSprite: {fileID: 631708945013981875}
-  middleSegments: 3
+  IsMoving: 0
+  middleSegments: 0
   middleTemplate: {fileID: 631708945527365413}
   endSegment: {fileID: 631708944046516755}
   headSegment: {fileID: 631708944049035732}
   physicsSegments: []
+  IsCaptured: 0
 --- !u!1 &631708945492882990
 GameObject:
   m_ObjectHideFlags: 0

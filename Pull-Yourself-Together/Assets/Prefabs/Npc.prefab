@@ -108,6 +108,8 @@ MonoBehaviour:
   limb: {fileID: 2281061366781600770, guid: 35941c3a79ad54042a629e28812a98ba, type: 3}
   floorLevel: -20
   anim: {fileID: 8270192068606939325}
+  raycastSize: 5
+  avoidenceSize: 10
   stop: 0
   droppedLimb: 0
   audioSource: {fileID: 8270192068606939322}

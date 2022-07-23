@@ -308,8 +308,8 @@ MonoBehaviour:
   - {fileID: 1183182401, guid: 0e4f5a094b3f6b547b74b87bac9101b1, type: 3}
   - {fileID: 1161745930, guid: 0e4f5a094b3f6b547b74b87bac9101b1, type: 3}
   moveTarget: {x: 0, y: 0}
-  moveSpeed: 0.05
-  handSpeed: 0.05
+  moveSpeed: 1
+  handSpeed: 5
   detectionArea: {fileID: 0}
   caughtToy: {fileID: 0}
   catchingToy: 0

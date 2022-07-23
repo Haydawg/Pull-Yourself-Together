@@ -41,7 +41,7 @@ public class Detection : MonoBehaviour
             }
             moveTarget = positions[currentMoveTarget].position;
         }
-        transform.position = Vector2.MoveTowards(transform.position, moveTarget, moveSpeed);
+        transform.position = Vector2.MoveTowards(transform.position, moveTarget, moveSpeed * Time.deltaTime);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

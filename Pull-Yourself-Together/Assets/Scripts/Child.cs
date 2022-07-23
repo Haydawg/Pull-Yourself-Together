@@ -90,7 +90,7 @@ public class Child : MonoBehaviour
 
         if(!catchingToy)
         {
-            hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed);
+            hand.transform.position = Vector2.MoveTowards(hand.transform.position, handAnchor.transform.position, handSpeed * Time.deltaTime);
 
         }
     }
@@ -99,14 +99,14 @@ public class Child : MonoBehaviour
     {
         if (catchingToy)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(caughtToy.transform.position.x, -1.85f), moveSpeed);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(caughtToy.transform.position.x, -1.85f), moveSpeed * Time.deltaTime);
 
         }
         else
         {
             moveTarget = detectionArea.transform.position;
             if(Vector2.Distance(transform.position, detectionArea.transform.position) > 5)
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(moveTarget.x, -1.85f), moveSpeed);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(moveTarget.x, -1.85f), moveSpeed * Time.deltaTime);
         }
     }
 
@@ -132,6 +132,6 @@ public class Child : MonoBehaviour
 
     public void Grab()
     {
-        hand.transform.position = Vector2.MoveTowards(hand.transform.position, caughtToy.transform.position, handSpeed);
+        hand.transform.position = Vector2.MoveTowards(hand.transform.position, caughtToy.transform.position, handSpeed * Time.deltaTime);
     }
 }
