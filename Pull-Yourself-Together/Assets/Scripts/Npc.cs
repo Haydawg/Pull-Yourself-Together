@@ -20,6 +20,8 @@ public class Npc : MonoBehaviour
     float move = 1;
     [SerializeField]
     float raycastSize = 5;
+    [SerializeField]
+    float avoidenceSize = 10;
     public bool stop;
     public bool droppedLimb = false;
 
@@ -59,7 +61,7 @@ public class Npc : MonoBehaviour
 
         foreach (Child child in children)
         {
-            if (Vector2.Distance(child.transform.position, transform.position) < 10)
+            if (Vector2.Distance(child.transform.position, transform.position) < avoidenceSize)
             {
                 stop = true;
             }
