@@ -11,6 +11,16 @@ public class PlatformManager : MonoBehaviour
     private void Start()
     {
         instance = this;
+
+        platforms = new List<Collider2D>();
+
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Platform");
+
+        foreach (GameObject obj in objects)
+        {
+            platforms.Add(obj.GetComponent<Collider2D>());
+        }
+
     }
 
 

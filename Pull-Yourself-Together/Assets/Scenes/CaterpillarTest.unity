@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 198655035}
   m_Layer: 0
   m_Name: Static Sprite (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -285,12 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de8c0e2d4fa9764caf22111dce9e04f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platforms:
-  - {fileID: 334677050}
-  - {fileID: 561382103}
-  - {fileID: 1017807891}
-  - {fileID: 605946877}
-  - {fileID: 198655036}
+  platforms: []
 --- !u!4 &327272467
 Transform:
   m_ObjectHideFlags: 0
@@ -325,7 +320,7 @@ GameObject:
   - component: {fileID: 334677049}
   m_Layer: 0
   m_Name: Static Sprite
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -338,8 +333,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334677047}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.37, y: -3.51, z: 0}
-  m_LocalScale: {x: 10.7824, y: 0.6975, z: 1}
+  m_LocalPosition: {x: 8.6373, y: -5.1971, z: 0}
+  m_LocalScale: {x: 21.557253, y: 2.2117724, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 327272467}
@@ -458,7 +453,7 @@ GameObject:
   - component: {fileID: 561382102}
   m_Layer: 0
   m_Name: Static Sprite (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -471,8 +466,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561382100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.04, y: -6.09, z: 0}
-  m_LocalScale: {x: 10.7824, y: 0.6975, z: 1}
+  m_LocalPosition: {x: -12.02, y: -6.87, z: 0}
+  m_LocalScale: {x: 20.975002, y: 2.6194613, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 327272467}
@@ -591,7 +586,7 @@ GameObject:
   - component: {fileID: 605946876}
   m_Layer: 0
   m_Name: Static Sprite (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -724,7 +719,7 @@ GameObject:
   - component: {fileID: 1017807890}
   m_Layer: 0
   m_Name: Static Sprite (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -981,6 +976,14 @@ PrefabInstance:
     - target: {fileID: 631708945374883750, guid: d2788dd8e83cd7049abfa6a486b7365f, type: 3}
       propertyPath: m_Name
       value: Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 631708945374883751, guid: d2788dd8e83cd7049abfa6a486b7365f, type: 3}
+      propertyPath: IsCaptured
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 631708945374883751, guid: d2788dd8e83cd7049abfa6a486b7365f, type: 3}
+      propertyPath: middleSegments
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2788dd8e83cd7049abfa6a486b7365f, type: 3}
