@@ -123,9 +123,10 @@ public class Npc : MonoBehaviour
             collider.Raycast(-transform.up + transform.right, hit, raycastSize);
         else if (move < 0)
             collider.Raycast(-transform.up + -transform.right, hit, raycastSize);
-        Debug.DrawLine(transform.position, hit[0].point, Color.red);
         if (hit[0])
         {
+            Debug.DrawLine(transform.position, hit[0].point, Color.red);
+
             if (hit[0].collider.tag != "Platform")
                 move *= -1;
         } 
