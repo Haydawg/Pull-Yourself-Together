@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
-    public Child[] children;
+    public Detection[] detections;
     public bool isMoving;
     Collider2D collider;
     public bool caught;
@@ -29,7 +29,7 @@ public class Npc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        children = FindObjectsOfType<Child>();
+        detections = FindObjectsOfType<Detection>();
         collider = GetComponent<Collider2D>();
     }
 
@@ -56,9 +56,9 @@ public class Npc : MonoBehaviour
         anim.SetFloat("move", move);
         anim.SetBool("isMoving", !stop);
 
-        foreach (Child child in children)
+        foreach (Detection detection in detections)
         {
-            if (Vector2.Distance(child.transform.position, transform.position) < avoidenceSize)
+            if (Vector2.Distance(detection.transform.position, transform.position) < avoidenceSize)
             {
                 stop = true;
             }
