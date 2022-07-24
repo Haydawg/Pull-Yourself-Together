@@ -13,7 +13,10 @@ public class UIManager : MonoBehaviour
     GameObject pausePanel;
     [SerializeField]
     TextMeshProUGUI winLoseText;
-
+    [SerializeField]
+    Image ending;
+    [SerializeField]
+    Sprite[] endingSprites;
     [SerializeField]
     Collider2D endCollider;
     [SerializeField]
@@ -48,13 +51,13 @@ public class UIManager : MonoBehaviour
         if (PlayerCharacter.instance.headSegment.transform.position.y < deathYpos)
         {
             winLosePanel.SetActive(true);
-            winLoseText.text = "You Loose Try again";
+            ending.sprite = endingSprites[0];
         }
 
         if(endCollider.IsTouching(PlayerCharacter.instance.headSegment.segmentCollider))
         {
             winLosePanel.SetActive(true);
-            winLoseText.text = "Congrats You Win";
+            ending.sprite = endingSprites[1];
         }
     }
 

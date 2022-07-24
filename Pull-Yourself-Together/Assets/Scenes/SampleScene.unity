@@ -1954,6 +1954,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2010347571641980732, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5759917453753256740, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2046,6 +2050,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5759917454195382402, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759917454725670879, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759917454901185326, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 652762310, guid: d2d50b5ae807f2945a247ea7ce919b8e, type: 3}
+    - target: {fileID: 5759917454901185327, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851032470991447218, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1894127303, guid: d2d50b5ae807f2945a247ea7ce919b8e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3beffba69037b498299b2dd57eac2d, type: 3}
 --- !u!1001 &6653489696631967148

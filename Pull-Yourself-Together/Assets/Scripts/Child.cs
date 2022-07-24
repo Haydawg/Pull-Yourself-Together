@@ -113,7 +113,8 @@ public class Child : MonoBehaviour
 
         if(PlayerCharacter.instance.IsCaptured)
         {
-            PlayerCharacter.instance.headSegment.transform.position = hand.transform.position;
+            if(caughtToy)
+                PlayerCharacter.instance.headSegment.transform.position = hand.transform.position;
         }
 
         if(!catchingToy)
