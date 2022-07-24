@@ -49,6 +49,8 @@ public class PlayerCharacter : MonoBehaviour
     public bool IsCaptured;
 
 
+    private float movingThreshold = 0.01f;
+
     public void Start()
     {
         instance = this;
@@ -109,16 +111,6 @@ public class PlayerCharacter : MonoBehaviour
             physicsSegments[i].hingeJoint.connectedBody = physicsSegments[i + 1].segmentRigidBody;
         }
 
-
-
-        //Instantiate body segment
-
-        //finish by adding the end segment
-
-        //make sure bodies are:
-        //positioned
-        //hinges hooked up
-        //rendering order established
     }
 
     public void Capture()
@@ -160,7 +152,7 @@ public class PlayerCharacter : MonoBehaviour
             isRagdoll = true;
             headSegment.segmentRigidBody.isKinematic = false;
             //Vector2 velocityDirection = headTarget - head.position + Vector2.up;
-            headSegment.segmentRigidBody.velocity += headVelocity*2;
+            headSegment.segmentRigidBody.velocity += headVelocity*5;
             headSegment.segmentRigidBody.WakeUp();
         }
 
@@ -188,7 +180,7 @@ public class PlayerCharacter : MonoBehaviour
         //headSprite.transform.LookAt(, Vector2.up);
 
         Vector2 finalPos = headSegment.transform.position;
-        IsMoving = finalPos != initPos;
+        IsMoving =  Vector2.Distance(finalPos, initPos) > movingThreshold;
     }
 
     private bool IsStuck()
