@@ -50,6 +50,8 @@ public class PlayerCharacter : MonoBehaviour
 
 
     private float movingThreshold = 0.01f;
+    [SerializeField]
+    private AudioSource source;
 
     public void Start()
     {
@@ -68,6 +70,7 @@ public class PlayerCharacter : MonoBehaviour
         //DestroyBody
         //GenerateBody();
         AddToBody();
+        source.PlayOneShot(source.clip);
     }
 
     private void AddToBody()
