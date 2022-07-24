@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             pausePanel.SetActive(pausePanel.activeSelf? false : true);
         }
@@ -38,10 +38,7 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
-        else
-            Time.timeScale = 1;
-
-        if (winLosePanel.activeSelf)
+        else if (winLosePanel.activeSelf)
         {
             Time.timeScale = 0;
         }

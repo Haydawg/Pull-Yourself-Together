@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1979541539, guid: cf36c0b8aba5ac14f8dcc4587bb95672, type: 3}
+  m_Sprite: {fileID: -486987946, guid: 5eba78e45ea94904682dde32130fe107, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,12 +122,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   limbSprites:
-  - {fileID: -1325753020, guid: cf36c0b8aba5ac14f8dcc4587bb95672, type: 3}
-  - {fileID: -212393302, guid: cf36c0b8aba5ac14f8dcc4587bb95672, type: 3}
-  - {fileID: 1979541539, guid: cf36c0b8aba5ac14f8dcc4587bb95672, type: 3}
-  - {fileID: 1681644645, guid: cf36c0b8aba5ac14f8dcc4587bb95672, type: 3}
-  - {fileID: -1562551334, guid: cf36c0b8aba5ac14f8dcc4587bb95672, type: 3}
-  - {fileID: -904274751, guid: cf36c0b8aba5ac14f8dcc4587bb95672, type: 3}
+  - {fileID: 417960572, guid: 5eba78e45ea94904682dde32130fe107, type: 3}
+  - {fileID: -1826153944, guid: 5eba78e45ea94904682dde32130fe107, type: 3}
+  - {fileID: -486987946, guid: 5eba78e45ea94904682dde32130fe107, type: 3}
+  - {fileID: 269299541, guid: 5eba78e45ea94904682dde32130fe107, type: 3}
+  - {fileID: 1205780156, guid: 5eba78e45ea94904682dde32130fe107, type: 3}
+  - {fileID: 386036091, guid: 5eba78e45ea94904682dde32130fe107, type: 3}
   spriteRenderer: {fileID: 2281061366781600774}
   collider: {fileID: 2281061366781600772}
 --- !u!60 &2281061366781600772
@@ -147,7 +147,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64407676, y: 0.39900002}
+    oldSize: {x: 0.6300751, y: 0.402}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
