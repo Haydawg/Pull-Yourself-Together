@@ -43,7 +43,9 @@ public class Npc : MonoBehaviour
         {
             collider.enabled = false;
             GetComponent<SpriteRenderer>().sortingOrder = -4;
-            if(!droppedLimb)
+            stop = true;
+
+            if (!droppedLimb)
             {
                 DropLimb();
             }
@@ -56,14 +58,13 @@ public class Npc : MonoBehaviour
         anim.SetFloat("move", move);
         anim.SetBool("isMoving", !stop);
 
+        stop = false;
         foreach (Detection detection in detections)
         {
             if (Vector2.Distance(detection.transform.position, transform.position) < avoidenceSize)
             {
                 stop = true;
             }
-            else
-                stop = false;
         }
 
     }
