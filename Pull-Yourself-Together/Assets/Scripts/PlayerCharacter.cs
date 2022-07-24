@@ -155,7 +155,7 @@ public class PlayerCharacter : MonoBehaviour
             isRagdoll = true;
             headSegment.segmentRigidBody.isKinematic = false;
             //Vector2 velocityDirection = headTarget - head.position + Vector2.up;
-            headSegment.segmentRigidBody.velocity += headVelocity*5;
+            headSegment.segmentRigidBody.velocity += (middleSegments == 0) ? headVelocity : headVelocity * 5;
             headSegment.segmentRigidBody.WakeUp();
         }
 
